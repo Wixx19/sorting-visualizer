@@ -1,12 +1,37 @@
-.array-container {
-    position: absolute;
-    left: 100px
+html, body {
+    height: 100%;   /* Ensure the html and body are full height */
+    margin: 0;      /* Reset default margin */
+    padding: 0;     /* Reset default padding */
+    overflow-x: hidden; /* Prevent horizontal scrolling at the page level */
+}
 
+.array-container {
+    position: relative; /* Maintain relative positioning */
+    width: 90vw;        /* Using viewport width for responsiveness */
+    max-width: 1200px;  /* Maximum width for better control on large screens */
+    margin: 20px auto;  /* Top and bottom margin for centered spacing */
+    height: calc(100vh - 60px); /* Adjust height to take full view height minus footer height */
+    display: flex;      /* Flex display to manage internal elements */
+    align-items: flex-end; /* Align bars to the bottom */
+    overflow-y: auto;   /* Adds vertical scroll if content exceeds container height */
+    overflow-x: hidden; /* Prevent horizontal scrolling inside the container */
 }
 
 .array-bar {
-    width: 2px;
     background-color: pink;
-    display: inline-block;
-    margin: 0 1px;
-} 
+    display: block;      /* Use block to maintain flex properties */
+    margin: 0 0.5px;     /* Slight margin between bars */
+    flex-grow: 1;        /* Allows bar to grow and fill available space */
+    height: auto;        /* Height is dynamically set in JavaScript */
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 10; /* Ensure footer is always on top */
+}
